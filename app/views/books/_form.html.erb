@@ -1,0 +1,39 @@
+<%= form_with(model: book, local: true) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :book_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author_id %>
+    <%#= form.text_field :author_id, id: :author_id %>
+    <%= form.select :author_id, Author.all.collect {|t| [t.name, t.id]}, {prompt: '-- Select Author Name --'}, class: 'form-control' %>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :based_on %>
+    <%= form.text_field :based_on, id: :book_based_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publish_date %>
+    <%= form.text_field :publish_date, id: :book_publish_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

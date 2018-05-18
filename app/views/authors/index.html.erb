@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="text-center">Authors</h1><br/>
+    <table class="table table-bordered">
+
+      <thead class="text-center">
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Latest book</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @authors.each do |author| %>
+          <tr class="text-center">
+            <td><%= author.name %></td>
+            <td><%= author.age %></td>
+            <td><%= author.latest_book %></td>
+            <td class="text-center"><%= link_to 'Show', author %> | 
+            <%= link_to 'Edit', edit_author_path(author) %> | 
+            <%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Author', new_author_path, class:'btn btn-success' %>
+  </div>
+</div>  
+
+
+</div>

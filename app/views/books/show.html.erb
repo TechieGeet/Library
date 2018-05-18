@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<p>
+  <strong>Name:</strong>
+  <%= @book.name %>
+</p>
+
+<p>
+  <strong>Author Name:</strong>
+  <%= @book.author_id %>
+</p>
+
+<p>
+  <strong>Based on:</strong>
+  <%= @book.based_on %>
+</p>
+
+<p>
+  <strong>Publish date:</strong>
+  <%= @book.publish_date %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
+	
+
+</div>
+
